@@ -145,3 +145,23 @@ class KasServer:
         if existing_record:
             self._request('delete_dns_settings',
                           {'record_id': existing_record['id']})
+
+    def list_account(self):
+        """Removes an existing DNS record"""
+        res = self._request('get_accounts', {})
+        print (res)
+
+    def add_account(self):
+        """Removes an existing DNS record"""
+        res = self._request('get_accounts', {})
+        print (res)
+
+    def add_subaccount(self, account_kas_password, account_ftp_password, hostname_art, hostname_part1, hostname_part2):
+        """add Subaccount"""
+        account_comment = 'test'
+        hostname_art = 'subdomain'
+   #     hostname_part1 = 'test298372873'
+        hostname_part2 = 'dev-wp.de'
+        max_subdomain = 1
+        res = self._request('add_account', {'max_subdomain': max_subdomain, 'account_kas_password':account_kas_password,'account_ftp_password': account_ftp_password,'hostname_art': hostname_art,'hostname_part1': hostname_part1,'hostname_part2': hostname_part2, 'account_comment': account_comment})
+        print (res)

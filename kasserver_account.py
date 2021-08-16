@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # kasserver - Manage domains hosted on All-Inkl.com through the KAS server API
 # Copyright (c) 2018 Christian Fetzer
 #
@@ -19,30 +21,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-[metadata]
-name = kasserver
-author = Christian Fetzer
-author-email = fetzer.ch@gmail.com
-description-file = README.rst
-url = https://github.com/fetzerch/kasserver
-license = MIT
-classifier =
-    Development Status :: 4 - Beta
-    Environment :: Console
-    Intended Audience :: System Administrators
-    License :: OSI Approved :: MIT License
-    Natural Language :: English
-    Operating System :: POSIX
-    Programming Language :: Python
-    Topic :: System :: Systems Administration
+"""Manage DNS records for All-Inkl.com domains through the KAS server"""
 
-[files]
-packages = kasserver
-package-data = kasserver = KasApi.wsdl
-
-[entry_points]
-console_scripts =
-    kasserver-account = kasserver.kasserver_account:cli
-    kasserver-dns = kasserver.kasserver_dns:cli
-    kasserver-dns-certbot = kasserver.kasserver_dns_certbot:cli
-    kasserver-dns-lego = kasserver.kasserver_dns_lego:cli
+from kasserver.kasserver_account import cli
+cli()  # pylint: disable=no-value-for-parameter
